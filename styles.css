@@ -1,7 +1,7 @@
 html {
   background-color: white;
 }
-body {
+.weather {
   position: relative;
   margin: 20px;
   border: 1px solid black;
@@ -35,4 +35,9 @@ form {
 #units {
   vertical-align: top;
   font-size: small;
+}
+.name-code {
+  margin: 0 20px;
+  padding: 0;
+  line-height: 0;
 }

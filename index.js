@@ -72,8 +72,7 @@ function citySubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#cityText").value;
   let citySearch = document.querySelector("h1");
-  citySearch.innerHTML = city;
-
+  citySearch.innerHTML = city.charAt(0).toUpperCase() + city.slice(1);
   searchCity(city);
 }
 

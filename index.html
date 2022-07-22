@@ -3,48 +3,57 @@
   <head>
     <title>Weather box</title>
     <meta charset="UTF-8" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400&display=swap" rel="stylesheet">
-      <link
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-      crossorigin="anonymous"/>
-      <script
+      crossorigin="anonymous"
+    />
+    <script
       src="https://kit.fontawesome.com/cb4e697fc0.js"
-      crossorigin="anonymous"></script>
-      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-      <link rel="stylesheet" type="text/css" href="styles.css" />
-    </head>
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
 
   <body>
-      <div class="weather">
-    <form id="cityForm">
-      <input type="text" id="cityText" placeholder="City..." width="800"/>
-      <input type="button" id="button" class="btn btn-primary" value="Search"/>
-      <input type="button" id="current" class="btn btn-primary" value="Current"/>
-    </form>
-    <p class="today">
-      Today
-    </p>
-    <h1>
-      Paris
-    </h1>
-    <h2>
-      <span class="temperature" id="temperature">
-      29  
-      </span>
-      <span id="units">
-        <a href="#" id="celsius">°C </a>
-        <span id="separator">|</span>
-        <a href="#" id="fahrengeit"> F </a>
-      </span>
-    </h2>
-    <h3>
-        <img src="sun.svg" alt="" width="50px" >
-    </h3>
-    <div class="data">
+    <div class="weather">
+      <form id="cityForm">
+        <input type="text" id="cityText" placeholder="City..." width="800" />
+        <input
+          type="button"
+          id="button"
+          class="btn btn-primary"
+          value="Search"
+        />
+        <input
+          type="button"
+          id="current"
+          class="btn btn-primary"
+          value="Current"
+        />
+      </form>
+      <p class="today">Today</p>
+      <h1>Paris</h1>
+      <h2>
+        <span class="temperature" id="temperature"> 29 </span>
+        <span id="units">
+          <a href="#" id="celsius">°C </a>
+          <span id="separator">|</span>
+          <a href="#" id="fahrengeit"> F </a>
+        </span>
+      </h2>
+      <h3>
+        <img src="sun.svg" alt="" width="50px" />
+      </h3>
+      <div class="data">
         <div class="col-md-3">
           Last updated:
           <br />
@@ -53,22 +62,30 @@
         <div class="col-md-3">Wind: 3 km/h</div>
         <div class="col-md-3">Humidity: 51%</div>
       </div>
-    <h4>
-      Temperature <img src="temperature.svg" alt="" width="30px" >
-    </h4>
-    <div class="content1">
+      <h4>Temperature <img src="temperature.svg" alt="" width="30px" /></h4>
+      <div class="content1">
         <div class="row align-items-start">
-          <div class="col">Morning <br />20°C<br /><img src="sun.svg" alt="" width="50px" ></div>
+          <div class="col">
+            Morning <br />20°C<br /><img src="sun.svg" alt="" width="50px" />
+          </div>
           <div class="col">
             Midday <br />
-            23°C<br /><img src="thunderstorm.svg" alt="" width="50px" >
+            23°C<br /><img src="thunderstorm.svg" alt="" width="50px" />
           </div>
-          <div class="col">Evening <br />26°C<br /><img src="rainy-weather.svg" alt="" width="50px" ></div>
-          <div class="col">Night <br />20°C<br /><img src="cloudy.svg" alt="" width="50px" ></div>
+          <div class="col">
+            Evening <br />26°C<br /><img
+              src="rainy-weather.svg"
+              alt=""
+              width="50px"
+            />
+          </div>
+          <div class="col">
+            Night <br />20°C<br /><img src="cloudy.svg" alt="" width="50px" />
+          </div>
         </div>
-    <br/>
-    <br/>
-        <hr/>
+        <br />
+        <br />
+        <hr />
         <div class="container">
           <div class="row">
             <div class="col">
@@ -121,6 +138,13 @@
             </div>
           </div>
         </div>
-    <script src="index.js"></script>
+
+        <script src="index.js"></script>
+      </div>
+    </div>
+    <p class="name-code">
+      <a href="https://github.com/stasiia-ti/weather-app">Open-course code</a>
+      by Anastasiia Titovska
+    </p>
   </body>
 </html>
