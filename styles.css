@@ -2,8 +2,8 @@ html {
   background-color: white;
 }
 #container_body {
-  position: relative;
-  margin: 20px;
+  position: center;
+  margin: 20px auto;
   border: 1px solid black;
   padding: 50px;
   border-radius: 10px;
@@ -37,7 +37,7 @@ form {
   font-size: small;
 }
 .name-code {
-  margin: 0 20px;
+  margin: 0 15%;
   padding: 0;
   line-height: 0;
 }
