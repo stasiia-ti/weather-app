@@ -1,0 +1,38 @@
+html {
+  background-color: white;
+}
+body {
+  position: relative;
+  margin: 20px;
+  border: 1px solid black;
+  padding: 50px;
+  border-radius: 10px;
+  color: rgb(36, 63, 80);
+  font-family: "Encode Sans", sans-serif;
+  background-color: honeydew;
+  font-size: 300;
+}
+
+.data {
+  flex-direction: column;
+  position: relative;
+  top: 0;
+  left: 80%;
+  font-size: 400;
+}
+
+.card {
+  background-color: ivory;
+}
+form {
+  display: block;
+  text-align: center;
+}
+.cityForm {
+  display: flex;
+  flex-direction: row;
+}
+#units {
+  vertical-align: top;
+  font-size: small;
+}
