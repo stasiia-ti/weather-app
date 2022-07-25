@@ -24,7 +24,7 @@
   </head>
 
   <body>
-    <div class="container" id="container_body">
+    <div class="container-md" id="container_body">
       <form id="cityForm">
         <input type="text" id="cityText" placeholder="City..." width="800" />
         <input
@@ -41,26 +41,31 @@
         />
       </form>
       <p class="today">Today</p>
-      <h1>Paris</h1>
+      <h1></h1>
       <h2>
-        <span class="temperature" id="temperature"> 29 </span>
+        <span class="weather-temperature" id="temperature"> </span>
         <span id="units">
-          <a href="#" id="celsius">°C </a>
+          <a href="" id="celsius">°C </a>
           <span id="separator">|</span>
-          <a href="#" id="fahrengeit"> F </a>
+          <a href="" id="fahrengeit"> F </a>
         </span>
       </h2>
       <h3>
-        <img src="sun.svg" alt="" width="50px" />
+        <div class="conteiner">
+          <div class="col-4" id="description"></div>
+          <div class="col-4" id="iconPictures">
+            <img src="" id="icon" alt="" width="100px" />
+          </div>
+        </div>
       </h3>
       <div class="data">
+        <div class="col-md-3"></div>
         <div class="col-md-3">
-          Last updated:
-          <br />
-          02.07.2022 17:35
+          Wind: <span class="wind" id="wind"></span> km/h
         </div>
-        <div class="col-md-3">Wind: 3 km/h</div>
-        <div class="col-md-3">Humidity: 51%</div>
+        <div class="col-md-3">
+          Humidity: <span class="humidity" id="humidity"></span>%
+        </div>
       </div>
       <h4>Temperature <img src="temperature.svg" alt="" width="30px" /></h4>
       <div class="content1">

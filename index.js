@@ -54,10 +54,30 @@ function temperature(response) {
   let temperat = Math.round(response.data.main.temp);
   let tempElement = document.querySelector("#temperature");
   tempElement.innerHTML = temperat;
-  let h3 = document.querySelector("h3");
+  let h3 = document.querySelector("#description");
   h3.innerHTML = response.data.weather[0].description;
-  console.log(temperat);
-  console.log(response.data.weather[0].description);
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = Math.round(response.data.main.humidity);
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  let citySearch = document.querySelector("h1");
+  citySearch.innerHTML = response.data.name;
+
+  celsiusTemperature = response.data.main.temp;
+}
+
+// Weather of geoloc
+function showPosition(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiKey = "98f63ab964a6f17c8f87a4018e522a54";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(temperature);
 }
 
 //  Search city
@@ -76,9 +96,8 @@ function citySubmit(event) {
   searchCity(city);
 }
 
-searchCity("Paris");
-
 //Enter or click
+
 let searchForm = document.querySelector("#cityForm");
 searchForm.addEventListener("submit", citySubmit);
 
@@ -87,51 +106,35 @@ searchForm2.addEventListener("click", citySubmit);
 
 // Celsius to Fahrehgeit
 
-function neo(event) {
+function chengeFahrenheiTemperature(event) {
   event.preventDefault();
-  let link = document.querySelector("#temperature");
-  link.innerHTML = 29;
+  let temperatureElement = document.querySelector("#temperature");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheiTemp = (celsiusTemperature * 9) / 5 + 35;
+  temperatureElement.innerHTML = Math.round(fahrenheiTemp);
 }
-
-let temp = document.querySelector("#celsius");
-temp.addEventListener("click", neo);
-
-function neo2(event) {
+function chengeCelsiusTemperature(event) {
   event.preventDefault();
-  let link1 = document.querySelector("#temperature");
-  let currentTemp = 29;
-  let tempFah = Math.round(currentTemp * 1.8 + 32);
-  link1.innerHTML = tempFah;
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrengeit");
+fahrenheitLink.addEventListener("click", chengeFahrenheiTemperature);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", chengeCelsiusTemperature);
+
+function getPosit(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-let temp1 = document.querySelector("#fahrengeit");
-temp1.addEventListener("click", neo2);
-
-// Weather of geoloc
-function showPosition(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let apiKey = "98f63ab964a6f17c8f87a4018e522a54";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
-}
-
-function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let head = document.querySelector("#temperature");
-  head.innerHTML = temperature;
-
-  let nameCity = response.data.name;
-  let headCity = document.querySelector("h1");
-  headCity.innerHTML = nameCity;
-
-  let sky = response.data.weather[0].description;
-  let headSky = document.querySelector("h3");
-  headSky.innerHTML = sky;
-}
-//navigator.geolocation.getCurrentPosition(showPosition);
 let current = document.querySelector("#current");
-current.addEventListener(
-  "click",
-  navigator.geolocation.getCurrentPosition(showPosition)
-);
+current.addEventListener("click", getPosit);
+
+searchCity("Paris");

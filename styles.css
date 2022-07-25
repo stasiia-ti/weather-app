@@ -1,6 +1,7 @@
 html {
   background-color: white;
 }
+
 #container_body {
   position: center;
   margin: 20px auto;
@@ -35,9 +36,16 @@ form {
 #units {
   vertical-align: top;
   font-size: small;
+  text-decoration: none;
 }
 .name-code {
   margin: 0 15%;
   padding: 0;
   line-height: 0;
+}
+#celsius,
+#fahrengeit {
+  text-decoration: none;
+  color: rgb(36, 63, 80);
+  cursor: default;
 }
