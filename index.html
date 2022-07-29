@@ -24,132 +24,180 @@
   </head>
 
   <body>
-    <div class="container-md" id="container_body">
-      <form id="cityForm">
-        <input type="text" id="cityText" placeholder="City..." width="800" />
-        <input
-          type="button"
-          id="button"
-          class="btn btn-primary"
-          value="Search"
-        />
-        <input
-          type="button"
-          id="current"
-          class="btn btn-primary"
-          value="Current"
-        />
-      </form>
-      <p class="today">Today</p>
-      <h1></h1>
-      <h2>
-        <span class="weather-temperature" id="temperature"> </span>
-        <span id="units">
-          <a href="" id="celsius">°C </a>
-          <span id="separator">|</span>
-          <a href="" id="fahrengeit"> F </a>
-        </span>
-      </h2>
-      <h3>
-        <div class="conteiner">
-          <div class="col-4" id="description"></div>
-          <div class="col-4" id="iconPictures">
-            <img src="" id="icon" alt="" width="100px" />
-          </div>
-        </div>
-      </h3>
-      <div class="data">
-        <div class="col-md-3"></div>
-        <div class="col-md-3">
-          Wind: <span class="wind" id="wind"></span> km/h
-        </div>
-        <div class="col-md-3">
-          Humidity: <span class="humidity" id="humidity"></span>%
-        </div>
-      </div>
-      <h4>Temperature <img src="temperature.svg" alt="" width="30px" /></h4>
-      <div class="content1">
-        <div class="row align-items-start">
-          <div class="col">
-            Morning <br />20°C<br /><img src="sun.svg" alt="" width="50px" />
-          </div>
-          <div class="col">
-            Midday <br />
-            23°C<br /><img src="thunderstorm.svg" alt="" width="50px" />
-          </div>
-          <div class="col">
-            Evening <br />26°C<br /><img
-              src="rainy-weather.svg"
-              alt=""
-              width="50px"
-            />
-          </div>
-          <div class="col">
-            Night <br />20°C<br /><img src="cloudy.svg" alt="" width="50px" />
-          </div>
-        </div>
-        <br />
-        <br />
-        <hr />
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              Sunday
-              <p class="card-text">
-                27° / 17°
-                <br />
-                <i class="fa-solid fa-cloud"></i>
-              </p>
+    <div class="container" id="container_body">
+      <div class="weatherApp-box">
+        <div class="weatherApp">
+          <form id="cityForm">
+            <div class="row">
+              <div class="col-8">
+                <input
+                  type="search"
+                  class="form-control"
+                  id="cityText"
+                  placeholder="City..."
+                  width="800"
+                />
+              </div>
+              <div class="col-2">
+                <input
+                  type="button"
+                  id="button"
+                  class="btn btn-primary"
+                  value="Search"
+                />
+              </div>
+              <div class="col-2">
+                <input
+                  type="button"
+                  id="current"
+                  class="btn btn-primary"
+                  value="Current"
+                />
+              </div>
             </div>
-            <div class="col order-5">
-              Monday
-              <p class="card-text">
-                29° / 16°
-                <br />
-                <i class="fa-solid fa-sun"></i>
-              </p>
-            </div>
-            <div class="col order-1">
-              Tuesday
-              <p class="card-text">
-                28° / 16°
-                <br />
-                <i class="fa-solid fa-cloud-showers-heavy"></i>
-              </p>
-            </div>
-            <div class="col">
-              Thursday
-              <p class="card-text">
-                25° / 15°
-                <br />
-                <i class="fa-solid fa-snowflake"></i>
-              </p>
-            </div>
-            <div class="col order-5">
-              Thursday
-              <p class="card-text">
-                22° / 18°
-                <br />
-                <i class="fa-solid fa-cloud-bolt"></i>
-              </p>
-            </div>
-            <div class="col order-1">
-              Friday
-              <p class="card-text">
-                20° / 17°
-                <br />
-                <i class="fa-solid fa-smog"></i>
-              </p>
+          </form>
+          <div class="row justify-content-between" id="firstblock">
+            <div class="row">
+              <div class="col-md-4"><p class="today">today</p></div>
+              <div class="col-md-4 ms-auto">
+                <div class="time" id="timeDay"></div>
+              </div>
             </div>
           </div>
-        </div>
 
+          <h1></h1>
+          <h2>
+            <span class="weather-temperature" id="temperature"> </span>
+            <span id="units">
+              <a href="" id="celsius">°C </a>
+              <span id="separator">|</span>
+              <a href="" id="fahrengeit"> F </a>
+            </span>
+          </h2>
+
+          <div class="container text-center">
+            <div class="row">
+              <div class="col">
+                <h3>
+                  <div id="description"></div>
+                </h3>
+              </div>
+
+              <div class="col order-5">
+                <div class="col">
+                  Wind: <span class="wind" id="wind"></span> km/h
+                </div>
+                <div class="col">
+                  Humidity: <span class="humidity" id="humidity"></span>%
+                </div>
+                <div class="col">
+                  Pressure: <span class="pressure" id="pressure"></span> mb
+                </div>
+              </div>
+              <div class="col order-1">
+                <img src="" id="icon" alt="" width="75px" />
+              </div>
+            </div>
+          </div>
+          <br />
+          <br />
+          <h5>
+            Temperature for day<img src="temperature.svg" alt="" width="30px" />
+          </h5>
+          <br />
+          <div class="content1">
+            <div class="row align-items-start">
+              <div class="col">
+                Morning <br />20°C<br /><img
+                  src="sun.svg"
+                  alt=""
+                  width="50px"
+                />
+              </div>
+              <div class="col">
+                Midday <br />
+                23°C<br /><img src="thunderstorm.svg" alt="" width="50px" />
+              </div>
+              <div class="col">
+                Evening <br />26°C<br /><img
+                  src="rainy-weather.svg"
+                  alt=""
+                  width="50px"
+                />
+              </div>
+              <div class="col">
+                Night <br />20°C<br /><img
+                  src="cloudy.svg"
+                  alt=""
+                  width="50px"
+                />
+              </div>
+            </div>
+          </div>
+          <br />
+
+          <hr />
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                Sunday
+                <p class="card-text">
+                  27° / 17°
+                  <br />
+                  <i class="fa-solid fa-cloud"></i>
+                </p>
+              </div>
+              <div class="col order-5">
+                Monday
+                <p class="card-text">
+                  29° / 16°
+                  <br />
+                  <i class="fa-solid fa-sun"></i>
+                </p>
+              </div>
+              <div class="col order-1">
+                Tuesday
+                <p class="card-text">
+                  28° / 16°
+                  <br />
+                  <i class="fa-solid fa-cloud-showers-heavy"></i>
+                </p>
+              </div>
+              <div class="col">
+                Thursday
+                <p class="card-text">
+                  25° / 15°
+                  <br />
+                  <i class="fa-solid fa-snowflake"></i>
+                </p>
+              </div>
+              <div class="col order-5">
+                Thursday
+                <p class="card-text">
+                  22° / 18°
+                  <br />
+                  <i class="fa-solid fa-cloud-bolt"></i>
+                </p>
+              </div>
+              <div class="col order-1">
+                Friday
+                <p class="card-text">
+                  20° / 17°
+                  <br />
+                  <i class="fa-solid fa-smog"></i>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="name-code">
+          <a href="https://github.com/stasiia-ti/weather-app"
+            >Open-course code</a
+          >
+          by Anastasiia Titovska
+        </p>
         <script src="index.js"></script>
       </div>
     </div>
-    <p class="name-code">
-      <a href="https://github.com/stasiia-ti/weather-app">Open-course code</a>
-      by Anastasiia Titovska
-    </p>
   </body>
 </html>
