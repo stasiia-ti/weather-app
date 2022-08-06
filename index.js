@@ -53,19 +53,20 @@ function formatDa(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  console.log(day);
+  let nextday = day[1];
+  console.log(nextday);
 
   return days[day];
 }
-
-//let days = ["Moning", "Midday", "Evening", "Night"];
 
 function displayHourly(response) {
   let hourly = response.data.hourly;
   let hourlyElement = document.querySelector("#hourly");
   let hourlyHTML = "";
 
-  hourly.forEach(function (forecastTime, index) {
-    if (index) {
+  hourly.forEach(function (forecastTime, day) {
+    if (day) {
       hourlyHTML =
         hourlyHTML +
         `<div class="col">
