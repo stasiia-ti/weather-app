@@ -19,6 +19,7 @@
       src="https://kit.fontawesome.com/cb4e697fc0.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
@@ -99,48 +100,46 @@
               </div>
             </div>
           </div>
-          <!--         <br />
-          <br />
-          <h5>
-            Temperature for day<img src="temperature.svg" alt="" width="30px" />
-          </h5>
-          <br />
-            <div class="content1">
-            <div class="row align-items-start">
-              <div class="col">
-                Morning <br />20°C<br /><img
-                  src="sun.svg"
-                  alt=""
-                  width="50px"
-                />
-              </div>
-              <div class="col">
-                Midday <br />
-                23°C<br /><img src="thunderstorm.svg" alt="" width="50px" />
-              </div>
-              <div class="col">
-                Evening <br />26°C<br /><img
-                  src="rainy-weather.svg"
-                  alt=""
-                  width="50px"
-                />
-              </div>
-              <div class="col">
-                Night <br />20°C<br /><img
-                  src="cloudy.svg"
-                  alt=""
-                  width="50px"
-                />
-              </div>
-            </div>
-          </div> -->
 
           <hr />
           <div class="weather-forecast">
             <div class="row" id="forecast"></div>
           </div>
+          <button type="button" class="btn btn-primary" id="showHideContent">
+            Hourly Forecast
+          </button>
+
+          <div class="content" id="content">
+            <div class="row align-items-start" id="hourly">
+              <!--     <div class="col">
+                  Morning <br />20°C<br /><img
+                    src="sun.svg"
+                    alt=""
+                    width="50px"
+                  />
+                </div>
+                <div class="col">
+                  Midday <br />
+                  23°C<br /><img src="thunderstorm.svg" alt="" width="50px" />
+                </div>
+                <div class="col">
+                  Evening <br />26°C<br /><img
+                    src="rainy-weather.svg"
+                    alt=""
+                    width="50px"
+                  />
+                </div>
+                <div class="col">
+                  Night <br />20°C<br /><img
+                    src="cloudy.svg"
+                    alt=""
+                    width="50px"
+                  />
+                </div> -->
+            </div>
+          </div>
         </div>
-        <button id="showHideContent">Hourly Forecast</button>
+
         <p class="name-code">
           <a href="https://github.com/stasiia-ti/weather-app"
             >Open-course code</a

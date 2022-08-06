@@ -47,7 +47,41 @@ function formatDate(date) {
 let nowDate = document.querySelector("p.today");
 nowDate.innerHTML = formatDate(currentTime);
 
-// Hourly Forecast
+// Hourly, Forecast Forecast
+
+function formatDa(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+//let days = ["Moning", "Midday", "Evening", "Night"];
+
+function displayHourly(response) {
+  let hourly = response.data.hourly;
+  let hourlyElement = document.querySelector("#hourly");
+  let hourlyHTML = "";
+
+  hourly.forEach(function (forecastTime, index) {
+    if (index) {
+      hourlyHTML =
+        hourlyHTML +
+        `<div class="col">
+          ${formatDa(forecastTime.dt)} <br />${Math.round(
+          forecastTime.temp
+        )}°<br />
+          <img src="http://openweathermap.org/img/wn/${
+            forecastTime.weather[0].icon
+          }@2x.png" alt="" width="50"/>
+          
+        </div>`;
+    }
+  });
+  hourlyElement.innerHTML = hourlyHTML;
+  console.log(response.data.hourly);
+}
 
 //  Forecast of day
 
@@ -58,7 +92,6 @@ function formatDay(timestamp) {
 
   return days[day];
 }
-
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
@@ -94,6 +127,7 @@ function displayForecast(response) {
 
   forecastElement.innerHTML = forecastHTML;
   console.log(forecastHTML);
+  console.log(forecast);
 }
 
 // Coordinats of search city
@@ -103,6 +137,7 @@ function getForecast(coordinates) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
+  axios.get(apiUrl).then(displayHourly);
 }
 
 //   Weather of city search
@@ -201,3 +236,14 @@ let current = document.querySelector("#current");
 current.addEventListener("click", getPosit);
 
 searchCity("Paris");
+
+$(document).ready(function () {
+  $("#showHideContent").click(function () {
+    if ($("#content").is(":hidden")) {
+      $("#content").show("slow");
+    } else {
+      $("#content").hide("slow");
+    }
+    return true;
+  });
+});
