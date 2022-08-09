@@ -40,48 +40,12 @@ function formatDate(date) {
     correntMinutes = `0${correntMinutes}`;
   }
 
-  let formattedDate = `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear}. Time ${correntHour}:${correntMinutes}`;
+  let formattedDate = `${currentDay}, ${currentMonth} ${currentDate}. ${currentYear} Time ${correntHour}:${correntMinutes}`;
 
   return formattedDate;
 }
 let nowDate = document.querySelector("p.today");
 nowDate.innerHTML = formatDate(currentTime);
-
-// Hourly, Forecast Forecast
-
-function formatDa(timestamp) {
-  let date = new Date(timestamp * 1000);
-  let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-  return days[day];
-}
-
-//let days = ["Moning", "Midday", "Evening", "Night"];
-
-function displayHourly(response) {
-  let hourly = response.data.hourly;
-  let hourlyElement = document.querySelector("#hourly");
-  let hourlyHTML = "";
-
-  hourly.forEach(function (forecastTime, index) {
-    if (index) {
-      hourlyHTML =
-        hourlyHTML +
-        `<div class="col">
-          ${formatDa(forecastTime.dt)} <br />${Math.round(
-          forecastTime.temp
-        )}°<br />
-          <img src="http://openweathermap.org/img/wn/${
-            forecastTime.weather[0].icon
-          }@2x.png" alt="" width="50"/>
-          
-        </div>`;
-    }
-  });
-  hourlyElement.innerHTML = hourlyHTML;
-  console.log(response.data.hourly);
-}
 
 //  Forecast of day
 
@@ -155,6 +119,18 @@ function temperature(response) {
   humidityElement.innerHTML = Math.round(response.data.main.humidity);
   let pressureElement = document.querySelector("#pressure");
   pressureElement.innerHTML = response.data.main.pressure;
+  let dateSunset = new Date(response.data.sys.sunset * 1e3);
+  localised = dateSunset.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  document.querySelector("#hour-sunset").innerHTML = `${localised}`;
+  let dateSunrise = new Date(response.data.sys.sunrise * 1e3);
+  localised = dateSunrise.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  document.querySelector("#hour-sunrise").innerHTML = `${localised}`;
 
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(

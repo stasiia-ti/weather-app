@@ -19,7 +19,7 @@
       src="https://kit.fontawesome.com/cb4e697fc0.js"
       crossorigin="anonymous"
     ></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
@@ -76,7 +76,7 @@
             </span>
           </h2>
 
-          <div class="container text-center">
+          <div class="container" id="centerBox">
             <div class="row">
               <div class="col">
                 <h3>
@@ -106,44 +106,22 @@
             <div class="row" id="forecast"></div>
           </div>
           <button type="button" class="btn btn-primary" id="showHideContent">
-            Hourly Forecast
+            Show more
           </button>
 
           <div class="content" id="content">
-            <div class="row align-items-start" id="hourly">
-              <!--     <div class="col">
-                  Morning <br />20°C<br /><img
-                    src="sun.svg"
-                    alt=""
-                    width="50px"
-                  />
-                </div>
-                <div class="col">
-                  Midday <br />
-                  23°C<br /><img src="thunderstorm.svg" alt="" width="50px" />
-                </div>
-                <div class="col">
-                  Evening <br />26°C<br /><img
-                    src="rainy-weather.svg"
-                    alt=""
-                    width="50px"
-                  />
-                </div>
-                <div class="col">
-                  Night <br />20°C<br /><img
-                    src="cloudy.svg"
-                    alt=""
-                    width="50px"
-                  />
-                </div> -->
+            <div class="row" id="hourly">
+              <img src="weather.jpeg" alt="" class="sunset" />
+              <div class="col">Sunset: <span id="hour-sunset"></span></div>
+              <div class="col">Sunrise: <span id="hour-sunrise"></span></div>
             </div>
           </div>
         </div>
 
         <p class="name-code">
           <a href="https://github.com/stasiia-ti/weather-app"
-            >Open-course code</a
-          >
+            >Open-course code
+          </a>
           by Anastasiia Titovska
         </p>
         <script src="index.js"></script>

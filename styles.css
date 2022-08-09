@@ -49,15 +49,8 @@ form {
   text-decoration: none;
 }
 
-#celsius,
-#fahrengeit {
-  text-decoration: none;
-  color: rgb(36, 63, 80);
-  cursor: default;
-}
-
 .weatherApp-box {
-  max-width: 600px;
+  max-width: 650px;
   margin: 20px auto;
   top: 10px;
 }
@@ -79,6 +72,39 @@ form {
   line-height: 3;
 }
 #content {
-  display: block;
+  display: none;
   text-align: center;
+}
+a {
+  text-decoration: none;
+  color: rgb(36, 63, 80);
+  cursor: pointer;
+}
+
+#units {
+  vertical-align: top;
+  font-size: small;
+  text-decoration: none;
+}
+#units .active {
+  cursor: default;
+}
+#units .inactive {
+  color: #f25d45;
+}
+#units .inactive:hover {
+  font-size: medium;
+}
+button {
+  display: block;
+  margin: 10px;
+}
+
+#centerBox {
+  margin: 0 20px auto;
+}
+
+#hourly img {
+  display: block;
+  border-radius: 30px;
 }
